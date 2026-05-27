@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "65d9c31671e46bb1e3b5",
   "position": {
-    "x": 271.275720164609,
-    "y": 165.92592592592592,
+    "x": 359.32960893854749,
+    "y": 91.1731843575419,
     "z": 0,
-    "height": 755.88477366255142,
-    "width": 1617.1193415637861,
+    "height": 850.0558659217877,
+    "width": 879.55307262569829,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "areaChart",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -27,31 +27,49 @@
                 }
               },
               "queryRef": "calendario.Data",
-              "nativeQueryRef": "Data",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
+              "nativeQueryRef": "Data"
+            },
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "cotacoes"
-                        }
-                      },
-                      "Property": "Cotacao"
+                    "SourceRef": {
+                      "Entity": "transacoes"
                     }
                   },
-                  "Function": 1
+                  "Property": "Valor Total"
                 }
               },
-              "queryRef": "Avg(cotacoes.Cotacao)",
-              "nativeQueryRef": "Média de Cotacao"
+              "queryRef": "transacoes.Valor Total",
+              "nativeQueryRef": "Valor Total"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cotacoes"
+                    }
+                  },
+                  "Property": "Cotação do dia"
+                }
+              },
+              "queryRef": "cotacoes.Cotação do dia",
+              "nativeQueryRef": "Cotação do dia"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cotacoes"
+                    }
+                  },
+                  "Property": "Cotação corrigida"
+                }
+              },
+              "queryRef": "cotacoes.Cotação corrigida",
+              "nativeQueryRef": "Cotação corrigida"
             }
           ]
         }
@@ -75,43 +93,49 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b36c5872dd8d8aeca051",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "calendario"
-              }
-            },
-            "Property": "Data"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a34fc3f685bc6041dd58",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "cotacoes"
-                  }
-                },
-                "Property": "Cotacao"
-              }
-            },
-            "Function": 1
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
