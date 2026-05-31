@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "65d9c31671e46bb1e3b5",
   "position": {
-    "x": 359.32960893854749,
-    "y": 91.1731843575419,
+    "x": 358.56,
+    "y": 90.72,
     "z": 0,
-    "height": 850.0558659217877,
-    "width": 879.55307262569829,
+    "height": 851.04,
+    "width": 965.52,
     "tabOrder": 0
   },
   "visual": {
@@ -70,6 +70,20 @@
               },
               "queryRef": "cotacoes.Cotação corrigida",
               "nativeQueryRef": "Cotação corrigida"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "transacoes"
+                    }
+                  },
+                  "Property": "Total R$"
+                }
+              },
+              "queryRef": "transacoes.Total R$",
+              "nativeQueryRef": "Total R$"
             }
           ]
         }
